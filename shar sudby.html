@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Шар судьбы</title>
+
+<!-- Bungee для текста в шаре -->
+<link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(to bottom, #f0f0f0, #d0d0d0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+}
+
+/* Заголовок */
+/* Подзаголовок */
+.subtitle {
+
+    font-weight: bold;
+    font-size: 12px;
+    color: rgba(0,0,0,0.5);
+    margin-top: 13px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.logo {
+    width: 210px;                 /* как мы зафиксировали */
+    height: auto;
+    margin-bottom: 10px;           /* было визуально много */
+    transform: translateY(-5px);  /* оптическая коррекция */
+    opacity: 0.99;                /* снимаем лишний вес */
+}
+
+/* Шар */
+#ball {
+    width: 250px;
+    height: 250px;
+    border-radius: 100%;
+    background: radial-gradient(circle at top, #5dade2 0%, #1f618d 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+    box-shadow: 1px 5px 20px rgba(0,0,0,0.9);
+    cursor: pointer;
+    user-select: none;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+
+#ball:hover {
+    box-shadow:
+        0 0 30px rgba(93,173,226,0.9),          /* внешнее свечение */
+        inset 0 0 35px rgba(255,255,255,0.45); /* внутреннее свечение */
+}
+#ball-text {
+    font-size: 40px;
+    font-family: 'Bungee', cursive;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    word-wrap: break-word;
+}
+
+/* Кнопка сброса */
+button {
+  padding-top: 15px;
+  padding-bottom: 19px;
+  border-radius: 59%;
+    cursor: pointer;
+    font-size: 15px;
+    color:  #f0f0f0;
+    text-shadow: 2px 1px 1px rgba(0,0,0,0.9);
+    background-color:  #B22222;
+    box-shadow: 1px 5px 10px rgba(0,0,0,0.4);
+  transition: transform 1.55, background-color 1.9s;
+  margin-top: 10px;
+  margin-bottom: 10px;
+      /*transform: rotate(90deg);*/
+}
+
+
+button:active {
+    transform: scale(1.1);
+    background: none;
+    /*background-color: #9a9a9a;*/
+}
+
+/* Реклама */
+#ad {
+    margin-bottom: 15px;
+    font-size: 12px;
+    padding: 15px 30px;
+}
+
+#ad a {
+    color: rgba(0,0,0,0.3);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Телеграм */
+#telegram a {
+    color: #6dade2;
+    text-decoration: none;
+    font-weight: bold;
+}
+@keyframes glowBreath {
+    0% {
+        box-shadow:
+            0 0 15px rgba(93,173,226,0.4),
+            inset 0 0 20px rgba(255,255,255,0.2);
+    }
+    50% {
+        box-shadow:
+            0 0 35px rgba(93,173,226,0.9),
+            inset 0 0 45px rgba(255,255,255,0.5);
+    }
+    100% {
+        box-shadow:
+            0 0 15px rgba(93,173,226,0.4),
+            inset 0 0 20px rgba(255,255,255,0.2);
+    }
+}
+
+#ball.breathing {
+    animation: glowBreath 2.4s ease-in-out infinite;
+}
+
+</style>
+</head>
+<body>
+  <div class="logo" style="width: 430px; height: 90px; background-image: url('shar_2.png'); background-size:contain; background-position: center;">
+      <!-- Картинка вместо надписи ШС -->
+  </div>
+
+<!--<h1>Шар судьбы</h1>-->
+
+<div class="subtitle">Задай вопрос и нажми на шар</div>
+
+<div id="ball">
+    <span id="ball-text">?</span>
+</div>
+
+<button id="reset">cбрoc</button>
+
+<div id="ad">
+    <a href="mailto:yourmail@example.com">Здесь может быть ваша реклама</a>
+</div>
+
+<div id="telegram">
+    <a href="https://t.me/ВАШ_КАНАЛ" target="_blank">➤ Telegram</a>
+</div>
+
+<script>
+const ball = document.getElementById('ball');
+const ballText = document.getElementById('ball-text');
+const resetButton = document.getElementById('reset');
+
+const answers = [
+    "Да",
+    "Нет",
+    
+];
+
+// ===== ФЛАГ СОСТОЯНИЯ ШАРА =====
+// true  — ответ уже выдан, шар заблокирован
+// false — можно нажимать и получать ответ
+let isAnswered = false;
+
+function spinBall() {
+    // Если ответ уже был — ничего не делаем
+    if (isAnswered) {
+        return;
+    }
+
+    // Выбираем случайный ответ ОДИН РАЗ
+    const i = Math.floor(Math.random() * answers.length);
+    ballText.textContent = answers[i];
+
+    // Блокируем дальнейшие клики
+    isAnswered = true;
+
+    // Визуальная реакция шара
+    ball.style.transform = "scale(1.12)";
+    setTimeout(() => {
+        ball.style.transform = "scale(1)";
+    }, 185);
+}
+
+function resetBall() {
+    // Возвращаем шар в исходное состояние
+    ballText.textContent = "?";
+    isAnswered = false;
+}
+
+// События
+ball.addEventListener('click', spinBall);
+resetButton.addEventListener('click', resetBall);
+
+// ===== Счётчик посещений (локальный, невидимый пользователю) =====
+// Считает количество загрузок страницы в данном браузере
+
+let visits = localStorage.getItem('shar_sudby_visits');
+
+if (!visits) {
+    visits = 1;
+} else {
+    visits = parseInt(visits, 10) + 1;
+}
+
+localStorage.setItem('shar_sudby_visits', visits);
+</script>
+
+
+</body>
+</html>
