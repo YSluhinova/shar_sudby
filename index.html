@@ -3,6 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="twitter:app:name:iphone" content="Telegram">
+<meta name="twitter:app:id:iphone" content="686449807">
+<meta name="twitter:app:url:iphone" content="tg://resolve?domain=sharrSudby_bot">
+
+<meta name="twitter:app:name:ipad" content="Telegram">
+<meta name="twitter:app:id:ipad" content="686449807">
+<meta name="twitter:app:url:ipad" content="tg://resolve?domain=sharrSudby_bot">
+
+<meta name="twitter:app:name:googleplay" content="Telegram">
+<meta name="twitter:app:id:googleplay" content="org.telegram.messenger">
+<meta name="twitter:app:url:googleplay" content="https://t.me/sharrSudby_bot">
+
 <title>Шар судьбы</title>
 
 <!-- Bungee для текста в шаре -->
@@ -53,7 +66,13 @@ body {
     cursor: pointer;
     user-select: none;
     transition: box-shadow 0.2s, transform 0.2s;
+    outline: none;           /* убираем рамку при фокусе */
+    -webkit-tap-highlight-color: transparent; /* убирает серый highlight на мобильных */
 }
+#ball.breathing {
+    animation: glowBreath 2.4s ease-in-out infinite;
+}
+
 
 #ball:hover {
     box-shadow:
@@ -155,9 +174,24 @@ button:active {
     <a href="mailto:yourmail@example.com">Здесь может быть ваша реклама</a>
 </div>
 
+<!--<div id="telegram">
+    <a href="https://web.telegram.org/a/#8507320103/" target="_blank">➤ Telegram</a>
+</div>-->
 <div id="telegram">
-    <a href="https://t.me/ВАШ_КАНАЛ" target="_blank">➤ Telegram</a>
+  <footer>
+
+    <a href="https://t.me/sharrSudby_bot" target="_blank" rel="noopener noreferrer">
+        Шар в Телеге
+    </a>
+</footer>
 </div>
+<!--  <a href="intent://resolve?domain=sharrSudby_bot#Intent;scheme=tg;package=org.telegram.messenger;end">
+  ➤ Telegram бот
+</a>-->
+
+
+
+
 
 <script>
 const ball = document.getElementById('ball');
@@ -167,7 +201,7 @@ const resetButton = document.getElementById('reset');
 const answers = [
     "Да",
     "Нет",
-    
+
 ];
 
 // ===== ФЛАГ СОСТОЯНИЯ ШАРА =====
