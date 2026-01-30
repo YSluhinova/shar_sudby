@@ -172,30 +172,6 @@ body {
     transform: scale(1.9);
 }
 
-
-/*button {
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 18px;
-    padding-right: 18px;
-    border-radius: 0%;       /* уже есть — оставляем *
-    cursor: pointer;
-    font-size: 15px;
-    color: #f0f0f0;
-    text-shadow: 2px 1px 1px rgba(0,0,0,0.9);
-    background-color: #D58A94;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    box-shadow: 1px 5px 10px rgba(0,0,0,0.4);
-}
-
-button:active {
-    transform: scale(1.1);
-    background: none;
-    background-color: #9a9a9a;
-}
-*/
-
 /* Реклама */
 #ad {
     margin-bottom: 10px;
@@ -234,6 +210,19 @@ button:active {
             0 0 15px rgba(93,173,226,0.4),
             inset 0 0 20px rgba(255,255,255,0.2);
     }
+}
+.reset-button {
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+
+.reset-button:active {
+    transform: scale(1.8);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
+.reset-button {
+    cursor: pointer;
+    pointer-events: auto;
 }
 
 
