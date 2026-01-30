@@ -104,7 +104,7 @@ button {
     box-shadow: 1px 5px 10px rgba(0,0,0,0.4);
     transition: transform 0.2s, background-color 0.2s;
     background-color: transparent;
-  
+
 }
 
 /* button {
@@ -154,12 +154,8 @@ button:active {
         transform: scale(1);
     }
     50% {
-        transform: scale(1.03); /* увеличиваем на 3% */
+        transform: scale(1.03);
     }
-}
-
-#ball.breathing {
-    animation: breathe 2s ease-in-out infinite;
 }
 
 @keyframes glowBreath {
@@ -180,9 +176,12 @@ button:active {
     }
 }
 
+/* Добавляем обе анимации к шару */
 #ball.breathing {
-    animation: glowBreath 2.4s ease-in-out infinite;
+    animation: breathe 2.4s ease-in-out infinite,
+               glowBreath 2.4s ease-in-out infinite;
 }
+
 
 </style>
 </head>
