@@ -90,6 +90,22 @@ body {
 
 /* Кнопка сброса */
 button {
+    padding-top: 15px;
+    padding-bottom: 19px;
+    border-radius: 59%;       /* уже есть — оставляем */
+    cursor: pointer;
+    font-size: 15px;
+    color: #f0f0f0;
+    text-shadow: 2px 1px 1px rgba(0,0,0,0.9);
+    background-color: #B22222; /* можно заменить на прозрачный, если хочешь убрать квадрат */
+    border: none;              /* убираем границу */
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-shadow: 1px 5px 10px rgba(0,0,0,0.4);
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+/* button {
   padding-top: 15px;
   padding-bottom: 19px;
   border-radius: 59%;
@@ -102,8 +118,8 @@ button {
   transition: transform 1.55, background-color 1.9s;
   margin-top: 10px;
   margin-bottom: 10px;
-      /*transform: rotate(90deg);*/
-}
+      /*transform: rotate(90deg);
+} */
 
 
 button:active {
@@ -131,6 +147,19 @@ button:active {
     text-decoration: none;
     font-weight: bold;
 }
+@keyframes breathe {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.03); /* увеличиваем на 3% */
+    }
+}
+
+#ball.breathing {
+    animation: breathe 2s ease-in-out infinite;
+}
+
 @keyframes glowBreath {
     0% {
         box-shadow:
@@ -187,6 +216,8 @@ button:active {
 const ball = document.getElementById('ball');
 const ballText = document.getElementById('ball-text');
 const resetButton = document.getElementById('reset');
+const ball = document.getElementById('ball');
+ball.classList.add('breathing');
 
 const answers = [
     "Да",
