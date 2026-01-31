@@ -209,12 +209,19 @@ body {
 }
 /* Убираем обводку и подсветку при клике */
 
+
+/* Убираем визуальные рамки и подсветку на всех устройствах */
 #ball,
 .reset-button,
 #telegram a,
-#ad a {
-    outline: none;
-    -webkit-tap-highlight-color: transparent; /* для мобильных */
+#ad a,
+button,
+input,
+select,
+textarea {
+    outline: none; /* убирает рамку фокуса */
+    -webkit-tap-highlight-color: transparent; /* убирает подсветку на мобильных */
+    -moz-outline-style: none; /* для старых Firefox */
 }
 
 
