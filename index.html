@@ -89,15 +89,33 @@ body {
     cursor: pointer;
     user-select: none;
 }
-
 #ball.breathing {
-    animation: breathe 2.4s ease-in-out infinite;
+    animation: breathe 2.4s ease-in-out infinite,
+               glowBreath 2.4s ease-in-out infinite;
 }
-
 @keyframes breathe {
     0%,100% { transform: scale(1); }
     50% { transform: scale(1.03); }
 }
+
+@keyframes glowBreath {
+    0% {
+        box-shadow:
+            0 0 15px rgba(93,173,226,0.4),
+            inset 0 0 20px rgba(255,255,255,0.2);
+    }
+    50% {
+        box-shadow:
+            0 0 35px rgba(93,173,226,0.9),
+            inset 0 0 45px rgba(255,255,255,0.5);
+    }
+    100% {
+        box-shadow:
+            0 0 15px rgba(93,173,226,0.4),
+            inset 0 0 20px rgba(255,255,255,0.2);
+    }
+}
+
 
 #ball-text {
     font-family: "Bungee", 'Georgia', serif;
@@ -223,12 +241,34 @@ function typeAnswer(text) {
         if (i === text.length) clearInterval(t);
     }, 300);
 }
+function typeAnswer(text, callback) {
+    ballText.textContent = "";
+    let i = 0;
+    const interval = setInterval(() => {
+        ballText.textContent += text[i];
+        i++;
+        if (i === text.length) {
+            clearInterval(interval);
+            // После печати запускаем анимацию
+            ballText.style.transition = "transform 0.35s ease-out, opacity 0.35s ease-out";
+            ballText.style.transform = "scale(1.2)";
+            ballText.style.opacity = "1";
+            setTimeout(() => {
+                ballText.style.transform = "";
+                ballText.style.opacity = "";
+                if (callback) callback();
+            }, 350);
+        }
+    }, 300); // задержка на символ
+}
 
 function spinBall() {
     if (isAnswered) return;
     isAnswered = true;
-    typeAnswer(answers[Math.floor(Math.random() * answers.length)]);
+    const chosenAnswer = answers[Math.floor(Math.random() * answers.length)];
+    typeAnswer(chosenAnswer);
 }
+
 
 function resetBall() {
     ballText.style.opacity = "0";
