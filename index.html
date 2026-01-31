@@ -72,7 +72,7 @@ body {
 /* Масштаб сцены при повороте */
 @media (orientation: landscape) {
     .stage {
-        transform: scale(0.70);
+        transform: scale(0.65);
         transform-origin: top center;
     }
 }
@@ -86,7 +86,6 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     flex-shrink: 0;           /* чтобы не уменьшалось при scale */
-    margin-top: 20px;
 }
 
 /* ===== ПОДЗАГОЛОВОК ===== */
@@ -215,12 +214,12 @@ body {
 /* ===== Вертикальный ритм ===== */
 .stage > * {
     margin-bottom: 0px; /* убираем нижний отступ, управляем только сверху */
-    margin-top: 25px;
+    margin-top: 15px;
 }
 
 /* Подзаголовок близко к лого */
 .subtitle {
-    margin-top: 20px; /* близко к лого */
+    margin-top: 10px; /* близко к лого */
     margin-bottom: 30px;
 }
 /* Остальные элементы — равномерные отступы 30px */
