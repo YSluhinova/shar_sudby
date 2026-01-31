@@ -123,6 +123,25 @@ body {
     color: #fff;
     text-shadow: 1px 5px 3px rgba(0,0,0,0.3);
 }
+/* CSS: добавляем класс для плавного проявления текста */
+#ball-text.showing {
+    animation: answerShow 1s ease forwards;
+}
+
+@keyframes showAnswer {
+    0% {
+        opacity: 0;
+        transform: scale(5.8);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
 
 /* ===== RESET ===== */
 .reset-button {
@@ -188,6 +207,15 @@ body {
 #telegram {
     margin-top: 30px;
 }
+/* Убираем обводку и подсветку при клике */
+
+#ball,
+.reset-button,
+#telegram a,
+#ad a {
+    outline: none;
+    -webkit-tap-highlight-color: transparent; /* для мобильных */
+}
 
 
 
@@ -233,40 +261,48 @@ let isAnswered = false;
 
 ball.classList.add('breathing');
 
-function typeAnswer(text) {
-    ballText.textContent = "";
-    let i = 0;
-    const t = setInterval(() => {
-        ballText.textContent += text[i++];
-        if (i === text.length) clearInterval(t);
-    }, 300);
-}
-function typeAnswer(text, callback) {
-    ballText.textContent = "";
-    let i = 0;
-    const interval = setInterval(() => {
-        ballText.textContent += text[i];
-        i++;
-        if (i === text.length) {
-            clearInterval(interval);
-            // После печати запускаем анимацию
-            ballText.style.transition = "transform 0.35s ease-out, opacity 0.35s ease-out";
-            ballText.style.transform = "scale(1.2)";
-            ballText.style.opacity = "1";
-            setTimeout(() => {
-                ballText.style.transform = "";
-                ballText.style.opacity = "";
-                if (callback) callback();
-            }, 350);
+
+function showAnswer(text, duration = 1000) {
+    ballText.style.transition = "opacity 0.3s ease, transform 0.3s ease";
+    ballText.style.opacity = "0";
+    ballText.style.transform = "scale(0.8)";
+
+
+    setTimeout(() => {
+      // Меняем текст
+      ballText.textContent = text;
+
+      // Для знака вопроса — обычное появление без увеличения
+      if (text === "?") {
+          ballText.style.transition = "opacity 1.2s ease";
+          ballText.style.transform = "scale(1)";
+      } else {
+        // Для ответа — сначала выставляем стартовые значения через requestAnimationFrame
+
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    ballText.style.transition = "opacity 0.8s ease, transform 0.8s ease";
+                    ballText.style.opacity = "1";
+                    ballText.style.transform = "scale(1.4)";
+
+                    // Возвращаем нормальный масштаб после анимации
+                    setTimeout(() => {
+                        ballText.style.transform = "scale(1)";
+                    }, 600);
+                });
+            });
         }
-    }, 300); // задержка на символ
+
+    }, 300); // время на плавное исчезновение старого текста
 }
 
+
+// В функции spinBall заменяем вызов typeAnswer на showAnswer
 function spinBall() {
     if (isAnswered) return;
     isAnswered = true;
     const chosenAnswer = answers[Math.floor(Math.random() * answers.length)];
-    typeAnswer(chosenAnswer);
+    showAnswer(chosenAnswer);
 }
 
 
@@ -276,7 +312,7 @@ function resetBall() {
         ballText.textContent = "?";
         ballText.style.opacity = "1";
         isAnswered = false;
-    }, 250);
+    }, 1050);
 }
 
 ball.addEventListener('click', spinBall);
