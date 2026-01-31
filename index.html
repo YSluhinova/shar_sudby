@@ -83,8 +83,8 @@ body {
 }
 
 #ball-text {
-    font-size: 34px;
-    font-family: "Bungee", "Rockwell";
+    font-size: 30px;
+    font-family: "Bungee", "Rockwell", serif;
     font-style:;
     color: #fff;
     text-align: center;
@@ -235,10 +235,10 @@ body {
 
 <!--<div class="subtitle">Задай вопрос и нажми на шар</div>-->
 
-<div id="ball">
-    <span id="ball-text">?</span>
-</div>
-<div id="reset" class="reset-button" aria-label="reset"></div>
+  <div id="ball">
+      <span id="ball-text">?</span>
+  </div>
+  <div id="reset" class="reset-button" aria-label="reset"></div>
 
 
 <!--<button id="reset">cбрoc</button>-->
@@ -261,58 +261,69 @@ body {
 const ball = document.getElementById('ball');
 const ballText = document.getElementById('ball-text');
 const resetButton = document.getElementById('reset');
-//const ball = document.getElementById('ball');
-
 
 const answers = [
     "Да",
     "Нет",
-
 ];
 
 // ===== ФЛАГ СОСТОЯНИЯ ШАРА =====
-// true  — ответ уже выдан, шар заблокирован
-// false — можно нажимать и получать ответ
 let isAnswered = false;
 
 // Включаем анимацию дыхания при загрузке страницы
-  ball.classList.add('breathing');
+ball.classList.add('breathing');
 
-  function spinBall() {
-      if (isAnswered) return;
+// ===== ФУНКЦИЯ ПЕЧАТАЮЩЕГОСЯ ТЕКСТА =====
+function typeAnswer(text, callback) {
+    ballText.textContent = "";
+    let i = 0;
+    const interval = setInterval(() => {
+        ballText.textContent += text[i];
+        i++;
+        if (i === text.length) {
+            clearInterval(interval);
+            if (callback) callback(); // вызываем анимацию после печати
+        }
+    }, 300); // пауза 0.1 сек на символ
+}
 
-      const i = Math.floor(Math.random() * answers.length);
-      ballText.textContent = answers[i];
-      isAnswered = true;
+function spinBall() {
+    if (isAnswered) return;
 
-      // анимация шара
-      ball.style.transform = "scale(1.12)";
-      setTimeout(() => {
-          ball.style.transform = ""; // возвращаем дыхание
-      }, 185);
+    const i = Math.floor(Math.random() * answers.length);
+    const chosenAnswer = answers[i];
+    isAnswered = true;
 
-      // анимация текста — масштаб + плавное появление
-      ballText.style.transition = "transform 0.35s ease-out, opacity 0.35s ease-out";
-      ballText.style.transform = "scale(1.3)";
-      ballText.style.opacity = "1";
+    // ===== Анимация шара =====
+    ball.style.transform = "scale(1.3)";
+    setTimeout(() => {
+        ball.style.transform = ""; // возвращаем дыхание
+    }, 185);
 
-      // возвращаем текст в обычное состояние после анимации
-      setTimeout(() => {
-          ballText.style.transform = "";
-          ballText.style.opacity = "";
-      }, 350);
-  }
+    // ===== Анимация текста =====
+    typeAnswer(chosenAnswer, () => {
+        ballText.style.transition = "transform 0.35s ease-out, opacity 0.35s ease-out";
+        ballText.style.transform = "scale(1.2)";
+        ballText.style.opacity = "1";
+
+        setTimeout(() => {
+            ballText.style.transform = "";
+            ballText.style.opacity = "";
+        }, 550);
+    });
+}
 
 function resetBall() {
-    // Возвращаем шар в исходное состояние
     ballText.textContent = "?";
     isAnswered = false;
     ball.style.transform = ""; // восстановление дыхания
 }
 
-// События
+// ===== События =====
 ball.addEventListener('click', spinBall);
 resetButton.addEventListener('click', resetBall);
+
+
 
 // ===== Счётчик посещений (локальный, невидимый пользователю) =====
 // Считает количество загрузок страницы в данном браузере
