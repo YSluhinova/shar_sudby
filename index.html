@@ -1,277 +1,204 @@
 <!DOCTYPE html>
 <html lang="ru">
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-PXSV3SQG');</script>
-<!-- End Google Tag Manager -->
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXSV3SQG"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="google-site-verification" content="6bhhaoQ9NM3g78fk2ikR1CqjCBaWQNlOlqFnksm_HDQ" />
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<meta name="twitter:app:name:iphone" content="Telegram">
-<meta name="twitter:app:id:iphone" content="686449807">
-<meta name="twitter:app:url:iphone" content="tg://resolve?domain=sharrSudby_bot">
-
-<meta name="twitter:app:name:ipad" content="Telegram">
-<meta name="twitter:app:id:ipad" content="686449807">
-<meta name="twitter:app:url:ipad" content="tg://resolve?domain=sharrSudby_bot">
-
-<meta name="twitter:app:name:googleplay" content="Telegram">
-<meta name="twitter:app:id:googleplay" content="org.telegram.messenger">
-<meta name="twitter:app:url:googleplay" content="https://t.me/sharrSudby_bot">
+<title>Шар судьбы – ваш онлайн предсказатель</title>
+<meta name="description" content="Испытайте магию Шара судьбы онлайн">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bungee:wght@400&display=swap" rel="stylesheet">
 
-
-<title>Шар судьбы – ваш онлайн предсказатель</title>
-<meta name="description" content="Испытайте магию Шара судьбы онлайн: получайте ответы «Да» или «Нет» на ваши вопросы.">
-<link rel="canonical" href="https://www.magball.ru/">
-
-
-
 <style>
-body {
+
+/* ===== БАЗА ===== */
+html, body {
     margin: 0;
-    height: 100vh;
-    background: linear-gradient(to bottom, #ffffff, #ffffff);
+    padding: 0;
+    width: 100%;
+    min-height: 100svh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: #fff;
+    font-family: 'Georgia', serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* чтобы страница могла скроллиться */
+}
+
+/* ===== СЦЕНА ===== */
+.stage {
+    position: relative;
+    width: 360px;
+    min-height: 640px;
+    max-width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    font-family: -apple-system, BlinkMacSystemFont, "Georgia", "Times", "FreeSerif", serif;
 }
 
-/* Заголовок */
-/* Подзаголовок */
-.subtitle {
-    font-weight: bold;
-    font-size: 14px;
-    color: rgba(0,0,0,0.4);
-    margin-top: 10px;
-    margin-bottom: 40px;
-    text-align: center;
-    font-family: 'Arial', sans-serif;
+/* Масштаб сцены при повороте */
+@media (orientation: landscape) {
+    .stage {
+        transform: scale(0.75);
+        transform-origin: top center;
+    }
 }
+
+/* ===== ЛОГО ===== */
 .logo {
-    width: 215px;                 /* как мы зафиксировали */
-    margin-top: 0px;
-    height: auto;
-    margin-bottom: 0px;           /* было визуально много */
-    transform: translateY(-5px);  /* оптическая коррекция */
-    opacity: 0.99;                /* снимаем лишний вес */
-
+    width: 350px;
+    height: 80px;            /* фиксированная высота */
+    background-image: url('shar_2.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    flex-shrink: 0;           /* чтобы не уменьшалось при scale */
+    margin-top: 20px;
 }
 
-/* Шар */
-/* ===== CSS для шара ===== */
+/* ===== ПОДЗАГОЛОВОК ===== */
+.subtitle {
+    font-size: 11px;          /* исправленный размер */
+    font-weight: normal;
+    color: rgba(0,0,0,0.4);
+    text-align: center;
+    margin: 0px;
+    font-family: Arial, sans-serif;
+    line-height: 1.4em;
+    flex-shrink: 0;           /* не уменьшается при scale */
+}
+
+/* ===== ШАР ===== */
 #ball {
-
-    width: 60vw;
-    max-width: 200px;
-    height: 60vw;
-    max-height: 200px;
-
-    border-radius: 100%;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
     background: radial-gradient(circle at top, #5dade2 0%, #1f618d 100%);
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 35px;
     box-shadow: 1px 5px 20px rgba(0,0,0,0.9);
     cursor: pointer;
     user-select: none;
-    transition: box-shadow 0.2s, transform 0.2s;
-    outline: none;
-}
-
-#ball-text {
-    font-size: 30px;
-    font-family: "Bungee", "Rockwell", serif;
-    font-style:;
-    color: #fff;
-    text-align: center;
-    font-weight: 400;
-    padding: 20px;
-    word-wrap: break-word;
-   text-shadow: 1px 5px 3px rgba(0,0,0,0.3);
-}
-#ball-text.answer-animate {
-    animation: answerPop 0.35s ease-out forwards;
-}
-
-#ball:hover {
-    box-shadow:
-        0 0 30px rgba(93,173,226,0.9),          /* внешнее свечение */
-        inset 0 0 35px rgba(255,255,255,0.45); /* внутреннее свечение */
-        }
-#ball:hover {  /* убрать квадрат-обводку вокруг шара */
-        -webkit-tap-highlight-color: transparent;
-        outline: none;
 }
 
 #ball.breathing {
-    animation: breathe 2.4s ease-in-out infinite,
-               glowBreath 2.4s ease-in-out infinite;
-}
-@keyframes glowBreath {
-    0% {
-        box-shadow:
-            0 0 15px rgba(93,173,226,0.4),
-            inset 0 0 20px rgba(255,255,255,0.2);
-    }
-    50% {
-        box-shadow:
-            0 0 35px rgba(93,173,226,0.9),
-            inset 0 0 45px rgba(255,255,255,0.5);
-    }
-    100% {
-        box-shadow:
-            0 0 15px rgba(93,173,226,0.4),
-            inset 0 0 20px rgba(255,255,255,0.2);
-    }
-}
-.reset-button {
-    -webkit-tap-highlight-color: transparent;
-    outline: none;
-}
-
-.reset-button:active {
-    transform: scale(1.8);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.4);
-}
-.reset-button {
-    cursor: pointer;
-    pointer-events: auto;
+    animation: breathe 2.4s ease-in-out infinite;
 }
 
 @keyframes breathe {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.03);
-    }
-}
-/* ===== CSS для анимации ответа ===== */
-@keyframes answerPop {
-    0% {
-        transform: scale(1.5);
-        opacity: 0;
-    }
-    50% {
-        transform: scale(1.3);
-        opacity: 1;
-    }
-    100% {
-        transform: scale(2);
-        opacity: 1;
-    }
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.03); }
 }
 
-/* Кнопка сброса */
+#ball-text {
+    font-family: "Bungee", 'Georgia', serif;
+    font-size: 30px;
+    color: #fff;
+    text-shadow: 1px 5px 3px rgba(0,0,0,0.3);
+}
+
+/* ===== RESET ===== */
 .reset-button {
-    width: 44px;
-    height: 44px;
+    margin-top: 20px; /* вертикальный отступ от шара */
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
-    background-color: #f4a3c4; /* розовый */
-    background-image: url('reset.png'); /* иконка ресета */
+    background-color: #f4a3c4;
+    background-image: url('reset.png');
     background-size: 60%;
     background-repeat: no-repeat;
     background-position: center;
+    border: 1.5px solid rgba(255,255,255,0.4);
     cursor: pointer;
-    margin-top: 5px;
-    margin-bottom: 15px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.35);
     transition: transform 0.15s ease, box-shadow 0.25s ease;
 }
 
-.reset-button:hover {
-    box-shadow: 0 6px 12px rgba(0,0,0,0.45);
-}
-
 .reset-button:active {
-    transform: scale(0.8);
+    transform: scale(0.85);
 }
 
-/* Реклама */
+/* ===== НИЗ ===== */
+
 #ad {
-    margin-bottom: 10px;
     font-size: 12px;
-    padding: 15px 30px;
+    padding: 0px;
+    margin-top: 20px;
 }
 
 #ad a {
     color: rgba(0,0,0,0.3);
     text-decoration: none;
-    cursor: pointer;
-    font-family: 'Arial', sans-serif;
 }
 
-/* Телеграм */
 #telegram a {
-    color: #6dade2;
-    font-size: 14px;
-    text-decoration: none;
+    font-size: 12px;
     font-weight: bold;
-    font-family: 'Georgia', 'Times new roman', serif;
+    color: #6dade2;
+    text-decoration: none;
+    margin-top: 20px;
 }
+
+/* ===== Вертикальный ритм ===== */
+
+.stage > * {
+    margin-bottom: 0; /* убираем нижний отступ, управляем только сверху */
+}
+
+/* Подзаголовок близко к лого */
+.subtitle {
+    margin-top: 20px; /* близко к лого */
+    margin-bottom: 30px;
+}
+/* Остальные элементы — равномерные отступы 30px */
+
+.reset-button,
+#ad,
+#telegram {
+    margin-top: 30px;
+}
+
+
+
 </style>
-
-  <!-- ГугОл аналитикс -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXX-X"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-XXXXXXX-X');
-  </script>
-
 </head>
 
 <body>
-  <div class="logo" style="width: 430px; height: 90px; background-image: url('shar_2.png');
-  background-size:contain; background-position: center; background-repeat: no-repeat;" aria-label="Логотип Шар судьбы">
-      <!-- Картинка вместо надписи ШС -->
-  </div>
 
+<div class="stage">
 
-  <div class="subtitle"><p>Получайте предсказания с помощью магии.
-  <br>Задайте вопрос.</br>
-  Нажмите на шар — получите ответ:</br>«Да» или «Нет»</p></div>
+    <div class="logo"></div>
 
-<!--<div class="subtitle">Задай вопрос и нажми на шар</div>-->
+    <div class="subtitle">
+        Получайте предсказания с помощью магии.<br>
+        Задайте вопрос.<br>
+        Нажмите на шар — получите ответ:<br>
+        "Да" или "Нет"
+    </div>
 
-  <div id="ball">
-      <span id="ball-text">?</span>
-  </div>
-  <div id="reset" class="reset-button" aria-label="reset"></div>
+    <div id="ball">
+        <span id="ball-text">?</span>
+    </div>
 
+    <div id="reset" class="reset-button" aria-label="reset"></div>
 
-<!--<button id="reset">cбрoc</button>-->
+    <div id="ad">
+        <a href="mailto:xx77@inbox.ru">Здесь может быть ваша реклама</a>
+    </div>
 
-<div id="ad">
-    <a href="mailto:xx77@inbox.ru">Здесь может быть ваша реклама</a>
-</div>
+    <div id="telegram">
+        <a href="https://t.me/sharrSudby_bot" target="_blank">‧ Telegram ‧</a>
+    </div>
 
-
-<div id="telegram">
-  <footer>
-
-    <a href="https://t.me/sharrSudby_bot" target="_blank" rel="noopener noreferrer">
-         ‧ Telegram ‧
-    </a>
-</footer>
 </div>
 
 <script>
@@ -279,93 +206,38 @@ const ball = document.getElementById('ball');
 const ballText = document.getElementById('ball-text');
 const resetButton = document.getElementById('reset');
 
-const answers = [
-    "Да",
-    "Нет",
-];
-
-// ===== ФЛАГ СОСТОЯНИЯ ШАРА =====
+const answers = ["Да", "Нет"];
 let isAnswered = false;
 
-// Включаем анимацию дыхания при загрузке страницы
 ball.classList.add('breathing');
 
-// ===== ФУНКЦИЯ ПЕЧАТАЮЩЕГОСЯ ТЕКСТА =====
-function typeAnswer(text, callback) {
+function typeAnswer(text) {
     ballText.textContent = "";
     let i = 0;
-    const interval = setInterval(() => {
-        ballText.textContent += text[i];
-        i++;
-        if (i === text.length) {
-            clearInterval(interval);
-            if (callback) callback(); // вызываем анимацию после печати
-        }
-    }, 300); // пауза 0.1 сек на символ
+    const t = setInterval(() => {
+        ballText.textContent += text[i++];
+        if (i === text.length) clearInterval(t);
+    }, 300);
 }
 
 function spinBall() {
     if (isAnswered) return;
-
-    const i = Math.floor(Math.random() * answers.length);
-    const chosenAnswer = answers[i];
     isAnswered = true;
-
-    // ===== Анимация шара =====
-    ball.style.transform = "scale(1.3)";
-    setTimeout(() => {
-        ball.style.transform = ""; // возвращаем дыхание
-    }, 185);
-
-    // ===== Анимация текста =====
-    typeAnswer(chosenAnswer, () => {
-        ballText.style.transition = "transform 0.35s ease-out, opacity 0.35s ease-out";
-        ballText.style.transform = "scale(1.2)";
-        ballText.style.opacity = "1";
-
-        setTimeout(() => {
-            ballText.style.transform = "";
-            ballText.style.opacity = "";
-        }, 550);
-    });
+    typeAnswer(answers[Math.floor(Math.random() * answers.length)]);
 }
 
 function resetBall() {
-    // Плавно скрываем текст
-    ballText.style.transition = "opacity 0.25s ease-out";
     ballText.style.opacity = "0";
-
     setTimeout(() => {
-        ballText.textContent = "?"; // меняем на знак вопроса
-        // Плавно показываем снова
+        ballText.textContent = "?";
         ballText.style.opacity = "1";
-    }, 250); // совпадает с длительностью transition
-
-    isAnswered = false;
-    ball.style.transform = ""; // восстановление дыхания
+        isAnswered = false;
+    }, 250);
 }
 
-
-// ===== События =====
 ball.addEventListener('click', spinBall);
 resetButton.addEventListener('click', resetBall);
-
-
-
-// ===== Счётчик посещений (локальный, невидимый пользователю) =====
-// Считает количество загрузок страницы в данном браузере
-
-let visits = localStorage.getItem('shar_sudby_visits');
-
-if (!visits) {
-    visits = 1;
-} else {
-    visits = parseInt(visits, 10) + 1;
-}
-
-localStorage.setItem('shar_sudby_visits', visits);
 </script>
-
 
 </body>
 </html>
