@@ -78,8 +78,8 @@ body {
 
 /* ===== ШАР ===== */
 #ball {
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     border-radius: 50%;
     background: radial-gradient(circle at top, #5dade2 0%, #1f618d 100%);
     display: flex;
@@ -88,6 +88,7 @@ body {
     box-shadow: 1px 5px 20px rgba(0,0,0,0.9);
     cursor: pointer;
     user-select: none;
+    margin-bottom: 15px;
 }
 #ball.breathing {
     animation: breathe 2.4s ease-in-out infinite,
@@ -173,7 +174,7 @@ body {
 #ad {
     font-size: 12px;
     padding: 0px;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 #ad a {
@@ -186,13 +187,14 @@ body {
     font-weight: bold;
     color: #6dade2;
     text-decoration: none;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 /* ===== Вертикальный ритм ===== */
 
 .stage > * {
-    margin-bottom: 0; /* убираем нижний отступ, управляем только сверху */
+    margin-bottom: 0px; /* убираем нижний отступ, управляем только сверху */
+    margin-top: 15px;
 }
 
 /* Подзаголовок близко к лого */
