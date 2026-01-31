@@ -91,7 +91,7 @@ async def choice(callback: CallbackQuery):
     )
   # Следующее сообщение с инструкцией и кнопками
     await callback.message.answer(
-        "[     ⚘       magball       ⚘](http://magball.ru)",
+        "[ ‧ s i t e ‧ m g b ‧ ](http://magball.ru)",
         reply_markup=keyboard_next,
         parse_mode=ParseMode.MARKDOWN_V2
     )
