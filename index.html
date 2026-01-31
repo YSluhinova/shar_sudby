@@ -1,17 +1,42 @@
 <!DOCTYPE html>
 <html lang="ru">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PXSV3SQG');</script>
+<!-- End Google Tag Manager -->
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXSV3SQG"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="google-site-verification" content="6bhhaoQ9NM3g78fk2ikR1CqjCBaWQNlOlqFnksm_HDQ" />
 
-<title>Шар судьбы – ваш онлайн предсказатель</title>
-<meta name="description" content="Испытайте магию Шара судьбы онлайн">
+<meta name="twitter:app:name:iphone" content="Telegram">
+<meta name="twitter:app:id:iphone" content="686449807">
+<meta name="twitter:app:url:iphone" content="tg://resolve?domain=sharrSudby_bot">
+
+<meta name="twitter:app:name:ipad" content="Telegram">
+<meta name="twitter:app:id:ipad" content="686449807">
+<meta name="twitter:app:url:ipad" content="tg://resolve?domain=sharrSudby_bot">
+
+<meta name="twitter:app:name:googleplay" content="Telegram">
+<meta name="twitter:app:id:googleplay" content="org.telegram.messenger">
+<meta name="twitter:app:url:googleplay" content="https://t.me/sharrSudby_bot">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bungee:wght@400&display=swap" rel="stylesheet">
+
+
+<title>Шар судьбы – ваш онлайн предсказатель</title>
+<meta name="description" content="Испытайте магию Шара судьбы онлайн: получайте ответы «Да» или «Нет» на ваши вопросы.">
+<link rel="canonical" href="https://www.magball.ru/">
 
 <style>
 
@@ -117,7 +142,6 @@ body {
     }
 }
 
-
 #ball-text {
     font-family: "Bungee", 'Georgia', serif;
     font-size: 30px;
@@ -170,7 +194,6 @@ body {
 }
 
 /* ===== НИЗ ===== */
-
 #ad {
     font-size: 12px;
     font-family: "Arial", sans-serif;
@@ -187,12 +210,9 @@ body {
     font-weight: bold;
     color: #6dade2;
     text-decoration: none;
-
-
 }
 
 /* ===== Вертикальный ритм ===== */
-
 .stage > * {
     margin-bottom: 0px; /* убираем нижний отступ, управляем только сверху */
     margin-top: 30px;
@@ -204,15 +224,10 @@ body {
     margin-bottom: 30px;
 }
 /* Остальные элементы — равномерные отступы 30px */
-
 .reset-button,
 #ad{
     margin-top: 30px;
 }
-
-/* Убираем обводку и подсветку при клике */
-
-
 /* Убираем визуальные рамки и подсветку на всех устройствах */
 #ball,
 .reset-button,
@@ -227,17 +242,23 @@ textarea {
     -moz-outline-style: none; /* для старых Firefox */
 }
 
-
-
 </style>
+
+<!-- ГугОл аналитикс -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXX-X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-XXXXXXX-X');
+  </script>
+  
 </head>
 
 <body>
-
 <div class="stage">
 
     <div class="logo"></div>
-
     <div class="subtitle">
         Получайте предсказания с помощью магии.<br>
         Задайте вопрос.<br>
@@ -249,16 +270,15 @@ textarea {
         <span id="ball-text">?</span>
     </div>
 
-    <div id="reset" class="reset-button" aria-label="reset"></div>
+      <div id="reset" class="reset-button" aria-label="reset"></div>
 
-    <div id="ad">
+      <div id="ad">
         <a href="mailto:xx77@inbox.ru">Здесь может быть ваша реклама</a>
     </div>
 
     <div id="telegram">
         <a href="https://t.me/sharrSudby_bot" target="_blank">Telegram</a>
     </div>
-
 </div>
 
 <script>
@@ -270,13 +290,10 @@ const answers = ["Да", "Нет"];
 let isAnswered = false;
 
 ball.classList.add('breathing');
-
-
 function showAnswer(text, duration = 1000) {
     ballText.style.transition = "opacity 0.3s ease, transform 0.3s ease";
     ballText.style.opacity = "0";
     ballText.style.transform = "scale(0.8)";
-
 
     setTimeout(() => {
       // Меняем текст
@@ -288,7 +305,6 @@ function showAnswer(text, duration = 1000) {
           ballText.style.transform = "scale(1)";
       } else {
         // Для ответа — сначала выставляем стартовые значения через requestAnimationFrame
-
             requestAnimationFrame(() => {
                 requestAnimationFrame(() => {
                     ballText.style.transition = "opacity 0.8s ease, transform 0.8s ease";
@@ -302,11 +318,8 @@ function showAnswer(text, duration = 1000) {
                 });
             });
         }
-
     }, 300); // время на плавное исчезновение старого текста
 }
-
-
 // В функции spinBall заменяем вызов typeAnswer на showAnswer
 function spinBall() {
     if (isAnswered) return;
@@ -314,7 +327,6 @@ function spinBall() {
     const chosenAnswer = answers[Math.floor(Math.random() * answers.length)];
     showAnswer(chosenAnswer);
 }
-
 
 function resetBall() {
     ballText.style.opacity = "0";
@@ -327,7 +339,7 @@ function resetBall() {
 
 ball.addEventListener('click', spinBall);
 resetButton.addEventListener('click', resetBall);
-</script>
 
+</script>
 </body>
 </html>
