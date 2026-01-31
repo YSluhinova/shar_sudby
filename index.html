@@ -56,6 +56,7 @@ body {
     margin-bottom: 0px;           /* было визуально много */
     transform: translateY(-5px);  /* оптическая коррекция */
     opacity: 0.99;                /* снимаем лишний вес */
+
 }
 
 /* Шар */
@@ -208,11 +209,21 @@ body {
     font-weight: bold;
 }
 </style>
+
+  <!-- ГугОл аналитикс -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXX-X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-XXXXXXX-X');
+  </script>
+
 </head>
 
 <body>
   <div class="logo" style="width: 430px; height: 90px; background-image: url('shar_2.png');
-  background-size:contain; background-position: center; background-repeat: no-repeat;">
+  background-size:contain; background-position: center; background-repeat: no-repeat;" aria-label="Логотип Шар судьбы">
       <!-- Картинка вместо надписи ШС -->
   </div>
 
