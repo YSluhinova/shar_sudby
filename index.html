@@ -317,10 +317,20 @@ function spinBall() {
 }
 
 function resetBall() {
-    ballText.textContent = "?";
+    // Плавно скрываем текст
+    ballText.style.transition = "opacity 0.25s ease-out";
+    ballText.style.opacity = "0";
+
+    setTimeout(() => {
+        ballText.textContent = "?"; // меняем на знак вопроса
+        // Плавно показываем снова
+        ballText.style.opacity = "1";
+    }, 250); // совпадает с длительностью transition
+
     isAnswered = false;
     ball.style.transform = ""; // восстановление дыхания
 }
+
 
 // ===== События =====
 ball.addEventListener('click', spinBall);
