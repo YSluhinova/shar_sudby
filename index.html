@@ -1,164 +1,382 @@
 <!DOCTYPE html>
 <html lang="ru">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PXSV3SQG');</script>
+<!-- End Google Tag Manager -->
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXSV3SQG"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <meta name="description" content="Магический шар предсказаний онлайн. Задай вопрос — получи ответ. Работает 24/7, бесплатно и анонимно.">
-    <title>Онлайн предсказатель | Задай вопрос и получи ответ</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bungee:wght@400&display=swap" rel="stylesheet">
-    <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            background: #fff;
-            font-family: 'Georgia', serif;
-            overflow-x: hidden;
-        }
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-        .stage {
-            width: 360px;
-            max-width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px 0;
-            box-sizing: border-box;
-        }
-        .logo {
-            width: 100%;
-            max-width: 550px;
-            height: 90px;
-            background-image: url('shar_2.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-        }
-        .subtitle {
-            font-size: 14px;
-            color: rgba(0,0,0,0.5);
-            text-align: center;
-            margin: 20px 10px;
-            line-height: 1.4em;
-        }
-        #ball {
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            background: radial-gradient(circle at top, #5dade2 0%, #1f618d 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 1px 5px 20px rgba(0,0,0,0.9);
-            cursor: pointer;
-            user-select: none;
-            margin: 15px 0;
-        }
-        #ball-text {
-            font-family: "Bungee", 'Georgia', serif;
-            font-size: 30px;
-            color: #fff;
-            text-shadow: 1px 5px 3px rgba(0,0,0,0.3);
-        }
-        .reset-button {
-            margin: 20px 0;
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background-color: #f4a3c4;
-            background-image: url('reset.png');
-            background-size: 60%;
-            background-repeat: no-repeat;
-            background-position: center;
-            border: 1.5px solid rgba(255,255,255,0.4);
-            cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.35);
-            transition: transform 0.15s ease;
-        }
-        .reset-button:active {
-            transform: scale(0.85);
-        }
-        #ad, #telegram, #copyright {
-            text-align: center;
-            margin: 10px 0;
-        }
-        #ad a, #copyright {
-            font-size: 10px;
-            font-family: "Arial", sans-serif;
-            color: rgba(0,0,0,0.3);
-            text-decoration: none;
-        }
-        #telegram a {
-            font-size: 14px;
-            font-weight: bold;
-            color: #6dade2;
-            text-decoration: none;
-        }
-        /* Десктоп: увеличиваем сцену */
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+
+<meta name="google-site-verification" content="6bhhaoQ9NM3g78fk2ikR1CqjCBaWQNlOlqFnksm_HDQ" />
+
+<meta name="twitter:app:name:iphone" content="Telegram">
+<meta name="twitter:app:id:iphone" content="686449807">
+<meta name="twitter:app:url:iphone" content="tg://resolve?domain=sharrSudby_bot">
+
+<meta name="twitter:app:name:ipad" content="Telegram">
+<meta name="twitter:app:id:ipad" content="686449807">
+<meta name="twitter:app:url:ipad" content="tg://resolve?domain=sharrSudby_bot">
+
+<meta name="twitter:app:name:googleplay" content="Telegram">
+<meta name="twitter:app:id:googleplay" content="org.telegram.messenger">
+<meta name="twitter:app:url:googleplay" content="https://t.me/sharrSudby_bot">
+<meta name="description" content="Магический шар предсказаний онлайн. Задай вопрос — получи ответ. Работает 24/7, бесплатно и анонимно.">
+<meta name="google-site-verification" content="gNTenvwL7r6VOJuedHOOw2aFAliI9V8E3kYzv3KTDRY" />
+    
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee:wght@400&display=swap" rel="stylesheet">
+
+
+<title>Онлайн предсказатель | Задай вопрос и получи ответ</title>
+<meta name="description" content="Испытайте магию Шара судьбы онлайн: получайте ответы «Да» или «Нет» на ваши вопросы.">
+<link rel="canonical" href="https://www.magball.ru/">
+
+<style>
+
+/* ===== БАЗА ===== */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100svh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: #fff;
+    font-family: 'Georgia', serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* чтобы страница могла скроллиться */
+}
+
+/* ===== СЦЕНА ===== */
+.stage {
+    position: relative;
+    width: 360px;
+    min-height: 640px;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Масштаб сцены при повороте */
+@media (orientation: landscape) {
+    .stage {
+        transform: scale(0.65);
+        transform-origin: top center;
+    }
+}
+
+/* ===== ЛОГО ===== */
+.logo {
+    width: 550px;
+    height: 90px;            /* фиксированная высота */
+    background-image: url('shar_2.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    flex-shrink: 0;           /* чтобы не уменьшалось при scale */
+}
+
+/* ===== ПОДЗАГОЛОВОК ===== */
+.subtitle {
+    font-size: 14px;          /* исправленный размер */
+    font-weight: normal;
+    color: rgba(0,0,0,0.5);
+    text-align: center;
+    margin: 10px;
+    font-family: "Georgia", serif;
+    line-height: 1.4em;
+    flex-shrink: 0;           /* не уменьшается при scale */
+}
+
+/* ===== ШАР ===== */
+#ball {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: radial-gradient(circle at top, #5dade2 0%, #1f618d 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 5px 20px rgba(0,0,0,0.9);
+    cursor: pointer;
+    user-select: none;
+    margin-bottom: 15px;
+}
+#ball.breathing {
+    animation: breathe 2.4s ease-in-out infinite,
+               glowBreath 2.4s ease-in-out infinite;
+}
+@keyframes breathe {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+}
+
+@keyframes glowBreath {
+    0% {
+        box-shadow:
+            0 0 15px rgba(93,173,226,0.4),
+            inset 0 0 20px rgba(255,255,255,0.2);
+    }
+    50% {
+        box-shadow:
+            0 0 35px rgba(93,173,226,0.9),
+            inset 0 0 45px rgba(255,255,255,0.5);
+    }
+    100% {
+        box-shadow:
+            0 0 15px rgba(93,173,226,0.4),
+            inset 0 0 20px rgba(255,255,255,0.2);
+    }
+}
+
+#ball-text {
+    font-family: "Bungee", 'Georgia', serif;
+    font-size: 30px;
+    color: #fff;
+    text-shadow: 1px 5px 3px rgba(0,0,0,0.3);
+}
+/* CSS: добавляем класс для плавного проявления текста */
+#ball-text.showing {
+    animation: answerShow 1s ease forwards;
+}
+
+@keyframes showAnswer {
+    0% {
+        opacity: 0;
+        transform: scale(5.8);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ===== RESET ===== */
+.reset-button {
+    margin-top: 20px; /* вертикальный отступ от шара */
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #f4a3c4;
+    background-image: url('reset.png');
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 1.5px solid rgba(255,255,255,0.4);
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.35);
+    transition: transform 0.15s ease, box-shadow 0.25s ease;
+}
+
+.reset-button:active {
+    transform: scale(0.85);
+}
+.reset-button:hover {
+    border-color: rgba(255, 255, 255, 0.8); /* обводка становится ярче */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.45);
+}
+
+/* ===== НИЗ ===== */
+#ad {
+    font-size: 10px;
+    font-family: "Arial", sans-serif;
+    padding: 0px;
+    text-align: center;
+}
+
+#ad a {
+    color: rgba(0,0,0,0.3);
+    text-decoration: none;
+}
+
+#telegram a {
+    font-size: 14px;
+    font-weight: bold;
+    color: #6dade2;
+    text-decoration: none;
+}
+#copyright{
+  font-size: 10px;
+  font-family: "Arial", sans-serif;
+  color: rgba(0,0,0,0.1);
+  text-decoration: none;
+}
+
+/* ===== Вертикальный ритм ===== */
+.stage > * {
+    margin-bottom: 0px; /* убираем нижний отступ, управляем только сверху */
+    margin-top: 0px;
+}
+
+/* Подзаголовок близко к лого */
+.subtitle {
+    margin-top: 10px; /* близко к лого */
+    margin-bottom: 45px;
+}
+/* Остальные элементы — равномерные отступы 30px */
+.reset-button,
+#ad,
+#telegram
+{
+    margin-top: 25px;
+}
+/* Убираем визуальные рамки и подсветку на всех устройствах */
+#ball,
+.reset-button,
+#telegram a,
+#ad a,
+button,
+input,
+select,
+textarea {
+    outline: none; /* убирает рамку фокуса */
+    -webkit-tap-highlight-color: transparent; /* убирает подсветку на мобильных */
+    -moz-outline-style: none; /* для старых Firefox */
+}
+@media (min-width: 600px) {
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+    .stage {
+        transform: scale(1.3);        /* ← увеличивает всю сцену в 1.3 раза */
+        transform-origin: center center; /* ← увеличивает от центра, а не от верха */
+        margin: 0;
+        padding: 0;
+    }
+}
+</style>
+
+<!-- ГугОл аналитикс -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXX-X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-XXXXXXX-X');
+  </script>
+
 </head>
+
 <body>
-    <div class="stage">
-        <div class="logo"></div>
-        <h1 style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0);">Шар судьбы — онлайн предсказатель</h1>
-        <div class="subtitle">
-            Получайте предсказания с помощью ответов,<br>которые выберет шар.
-            Задайте вопрос.<br>
-            Нажмите на шар — получите ответ:<br>
-            «Да» или «Нет»
-        </div>
-        <div id="ball">
-            <span id="ball-text">?</span>
-        </div>
-        <div class="reset-button" aria-label="reset"></div>
-        <div id="ad">
-            <a href="mailto:xx77@inbox.ru">Здесь может быть ваша реклама.<br>*Контент несёт чисто информационный характер</a>
-        </div>
-        <div id="telegram">
-            <a href="https://t.me/sharrSudby_bot" target="_blank">Telegram</a>
-        </div>
-        <div id="copyright">
-            <p>© ВПЗ. 2026</p>
-        </div>
+<div class="stage">
+    <div style="min-height: 100vh; display: flex; justify-content: center; align-items: center;">
+        
+        <!-- Здесь уже живёт твоя сцена .stage и всё остальное -->
+
     </div>
-    <script>
-        const ball = document.getElementById('ball');
-        const ballText = document.getElementById('ball-text');
-        const resetButton = document.querySelector('.reset-button');
-        const answers = ["Да", "Нет"];
-        let isAnswered = false;
+</body>
+    <div class="logo"></div>
+    <h1 style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0);">Шар судьбы — онлайн предсказатель</h1>
+    <div class="subtitle">
+        Получайте предсказания с помощью ответов,<br>которые выберет шар.
+        Задайте вопрос.<br>
+        Нажмите на шар — получите ответ:<br>
+        «Да» или «Нет»
+    </div>
 
-        function showAnswer(text) {
-            ballText.style.opacity = "0";
-            setTimeout(() => {
-                ballText.textContent = text;
-                ballText.style.opacity = "1";
-            }, 300);
+    <div id="ball">
+        <span id="ball-text">?</span>
+    </div>
+
+      <div id="reset" class="reset-button" aria-label="reset"></div>
+
+      <div id="ad">
+        <a href="mailto:xx77@inbox.ru">Здесь может быть ваша реклама.<br>*Контент несёт чисто иформационный характер,<br>без рекомендаций к действию</a>
+    </div>
+
+    <div id="telegram">
+        <a href="https://t.me/sharrSudby_bot" target="_blank">Telegram</a>
+    </div>
+    <div id="copyright">
+        <p>© ВПЗ. 2026</p>
+    </div>
+</div>
+
+<script>
+const ball = document.getElementById('ball');
+const ballText = document.getElementById('ball-text');
+const resetButton = document.getElementById('reset');
+
+const answers = ["Да", "Нет"];
+let isAnswered = false;
+
+ball.classList.add('breathing');
+function showAnswer(text, duration = 1000) {
+    ballText.style.transition = "opacity 0.3s ease, transform 0.3s ease";
+    ballText.style.opacity = "0";
+    ballText.style.transform = "scale(0.8)";
+
+    setTimeout(() => {
+      // Меняем текст
+      ballText.textContent = text;
+
+      // Для знака вопроса — обычное появление без увеличения
+      if (text === "?") {
+          ballText.style.transition = "opacity 1.2s ease";
+          ballText.style.transform = "scale(1)";
+      } else {
+        // Для ответа — сначала выставляем стартовые значения через requestAnimationFrame
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    ballText.style.transition = "opacity 0.8s ease, transform 0.8s ease";
+                    ballText.style.opacity = "1";
+                    ballText.style.transform = "scale(1.0)";
+
+                    // Возвращаем нормальный масштаб после анимации
+                    setTimeout(() => {
+                        ballText.style.transform = "scale(1)";
+                    }, 600);
+                });
+            });
         }
+    }, 300); // время на плавное исчезновение старого текста
+}
+// В функции spinBall заменяем вызов typeAnswer на showAnswer
+function spinBall() {
+    if (isAnswered) return;
+    isAnswered = true;
+    const chosenAnswer = answers[Math.floor(Math.random() * answers.length)];
+    showAnswer(chosenAnswer);
+}
 
-        ball.addEventListener('click', () => {
-            if (isAnswered) return;
-            isAnswered = true;
-            const answer = answers[Math.floor(Math.random() * answers.length)];
-            showAnswer(answer);
-        });
+function resetBall() {
+    ballText.style.opacity = "0";
+    setTimeout(() => {
+        ballText.textContent = "?";
+        ballText.style.opacity = "1";
+        isAnswered = false;
+    }, 1050);
+}
 
-        resetButton.addEventListener('click', () => {
-            ballText.style.opacity = "0";
-            setTimeout(() => {
-                ballText.textContent = "?";
-                ballText.style.opacity = "1";
-                isAnswered = false;
-            }, 300);
-        });
-    </script>
+ball.addEventListener('click', spinBall);
+resetButton.addEventListener('click', resetBall);
+
+</script>
 </body>
 </html>
