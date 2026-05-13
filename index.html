@@ -251,20 +251,28 @@ textarea {
     -webkit-tap-highlight-color: transparent; /* убирает подсветку на мобильных */
     -moz-outline-style: none; /* для старых Firefox */
 }
-/* Планшеты и десктопы */
-@media (min-width: 600px) {
+/* Большие экраны (ноутбуки и мониторы) */
+@media (min-width: 1024px) {
     .stage {
-        width: 500px;          /* пошире */
-        max-width: 100%;
-        padding: 30px 0;       /* немного воздуха */
+        width: 700px;
+        max-width: 90vw;
+        padding: 40px 0;
     }
     .logo {
-        width: 350px;          /* логотип тоже масштабируется */
-        height: auto;          /* сохраняем пропорции */
-        aspect-ratio: 550/90;  /* соотношение из твоего дизайна */
+        width: 500px;
+        height: auto;
+        aspect-ratio: 550 / 90;
     }
-    body {
-        align-items: flex-start; /* возвращаем скролл */
+    #ball {
+        width: 300px;
+        height: 300px;
+    }
+    #ball-text {
+        font-size: 36px;
+    }
+    .subtitle {
+        font-size: 16px;
+        line-height: 1.5em;
     }
 }
 </style>
