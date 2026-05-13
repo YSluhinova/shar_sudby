@@ -73,7 +73,7 @@ body {
 /* Масштаб сцены при повороте */
 @media (orientation: landscape) {
     .stage {
-        transform: scale(0.65);
+        transform: scale(0.75);
         transform-origin: top center;
     }
 }
@@ -113,7 +113,7 @@ body {
     box-shadow: 1px 5px 20px rgba(0,0,0,0.9);
     cursor: pointer;
     user-select: none;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
 }
 #ball.breathing {
     animation: breathe 2.4s ease-in-out infinite,
@@ -199,26 +199,28 @@ body {
 /* ===== НИЗ ===== */
 #ad {
     font-size: 10px;
-    font-family: "Arial", sans-serif;
+    font-family: "Georgia", sans-serif;
     padding: 0px;
     text-align: center;
 }
 
 #ad a {
-    color: rgba(0,0,0,0.3);
+    font-size: 14px;
+    font-weight: ;
+    color: rgba(0,0,0,0.4);
     text-decoration: none;
 }
 
 #telegram a {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: bold;
     color: #6dade2;
     text-decoration: none;
 }
 #copyright{
-  font-size: 10px;
-  font-family: "Arial", sans-serif;
-  color: rgba(0,0,0,0.1);
+  font-size: 11px;
+  font-family: "Georgia", sans-serif;
+  color: rgba(0,0,0,0.3);
   text-decoration: none;
 }
 
@@ -231,14 +233,14 @@ body {
 /* Подзаголовок близко к лого */
 .subtitle {
     margin-top: 10px; /* близко к лого */
-    margin-bottom: 45px;
+    margin-bottom: 35px;
 }
-/* Остальные элементы — равномерные отступы 30px */
+/* Остальные элементы — равномерные отступы 10px */
 .reset-button,
 #ad,
 #telegram
 {
-    margin-top: 25px;
+    margin-top: 10px;
 }
 /* Убираем визуальные рамки и подсветку на всех устройствах */
 #ball,
@@ -252,6 +254,21 @@ textarea {
     outline: none; /* убирает рамку фокуса */
     -webkit-tap-highlight-color: transparent; /* убирает подсветку на мобильных */
     -moz-outline-style: none; /* для старых Firefox */
+}
+.about {
+    text-align: center;
+    font-size: 13px;
+    color: rgba(0,0,0,0.4);
+    margin-top: 25px;
+    padding: 0 25px;
+    line-height: 1.5;
+}
+.ffun {
+    text-align: center;
+    font-size: 12px;
+    color: rgba(0,0,0,0.3);
+    padding: 0 25px;
+    line-height: 1.5;
 }
 @media (min-width: 600px) {
     html, body {
@@ -272,6 +289,7 @@ textarea {
         padding: 0;
     }
 }
+
 </style>
 
 <!-- ГугОл аналитикс -->
@@ -302,14 +320,24 @@ textarea {
     </div>
 
       <div id="reset" class="reset-button" aria-label="reset"></div>
+    <div class="about">
+         <p>
+        «Шар судьбы» — это онлайн-предсказатель*, созданный с вниманием к деталям.<br>
+        Мы не используем сложные алгоритмы или искусственный интеллект — только случайность,<br>
+        как в настоящем магическом шаре.<br>
+        <p class="ffun">*Развлекательный контент</p>
+         </p>
 
-      <div id="ad">
-        <a href="mailto:xx77@inbox.ru">➤ Разместить рекламу на сайте.<br>*Контент несёт чисто иформационный характер,<br>без рекомендаций к действию</a>
+    </div>
+
+    <div id="ad">
+        <a href="mailto:xx77@inbox.ru">Реклама ➤</a>
     </div>
 
     <div id="telegram">
-        <a href="https://t.me/sharrSudby_bot" target="_blank">Telegram</a>
+        <a href="https://t.me/sharrSudby_bot" target="_blank">bot telegram</a>
     </div>
+
     <div id="copyright">
         <p>© ВПЗ. 2026</p>
     </div>
