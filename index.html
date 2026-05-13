@@ -173,7 +173,7 @@ body {
 
 /* ===== RESET ===== */
 .reset-button {
-    margin-top: 20px; /* вертикальный отступ от шара */
+    margin-top: 20px;
     width: 48px;
     height: 48px;
     border-radius: 50%;
@@ -185,15 +185,21 @@ body {
     border: 1.5px solid rgba(255,255,255,0.4);
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0,0,0,0.35);
-    transition: transform 0.15s ease, box-shadow 0.25s ease;
+    transition: transform 0.1s ease, box-shadow 0.5s ease, background-color 0.3s ease;
 }
 
-.reset-button:active {
-    transform: scale(0.85);
-}
+/* При наведении — подсветка */
 .reset-button:hover {
-    border-color: rgba(255, 255, 255, 0.8); /* обводка становится ярче */
+    background-color: #f8b9d0;
+    border-color: rgba(255, 255, 255, 0.8);
     box-shadow: 0 6px 12px rgba(0,0,0,0.45);
+}
+
+/* При нажатии — кнопка «проваливается» */
+.reset-button:active {
+    transform: scale(1.95);
+    background-color: #e892b0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
 /* ===== НИЗ ===== */
@@ -212,7 +218,7 @@ body {
 }
 
 #telegram a {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: bold;
     color: #6dade2;
     text-decoration: none;
@@ -310,8 +316,8 @@ textarea {
     <h1 style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0);">Шар судьбы — онлайн предсказатель</h1>
     <div class="subtitle">
         Получайте предсказания с помощью ответов,<br>которые выберет шар.
-        Задайте вопрос.<br>
-        Нажмите на шар — получите ответ:<br>
+        Задайте вопрос,<br>
+        нажмите на шар — получите ответ:<br>
         «Да» или «Нет»
     </div>
 
@@ -319,24 +325,26 @@ textarea {
         <span id="ball-text">?</span>
     </div>
 
-      <div id="reset" class="reset-button" aria-label="reset"></div>
+    <div id="reset" class="reset-button" aria-label="reset"></div>
+
     <div class="about">
          <p>
-        «Шар судьбы» — это онлайн-предсказатель*, созданный с вниманием к деталям.<br>
-        Мы не используем сложные алгоритмы или искусственный интеллект — только случайность,<br>
-        как в настоящем магическом шаре.<br>
-        <p class="ffun">*Развлекательный контент</p>
+         «Шар судьбы» — это онлайн-предсказатель*, созданный с вниманием к деталям.
+         Мы не используем сложные алгоритмы или искусственный интеллект — только случайность,
+         как в настоящем магическом шаре.<br><span style="color: rgba(0,0,0,0.3);font-size: 12px;">*Развлекательный контент</span>
          </p>
 
     </div>
 
     <div id="ad">
-        <a href="mailto:xx77@inbox.ru">Реклама ➤</a>
+        <a href="mailto:xx77@inbox.ru">Реклама</a>
     </div>
 
     <div id="telegram">
         <a href="https://t.me/sharrSudby_bot" target="_blank">bot telegram</a>
     </div>
+
+
 
     <div id="copyright">
         <p>© ВПЗ. 2026</p>
@@ -401,6 +409,19 @@ function resetBall() {
 
 ball.addEventListener('click', spinBall);
 resetButton.addEventListener('click', resetBall);
+
+resetButton.addEventListener('mousedown', () => {
+    resetButton.style.transform = 'scale(0.85)';
+    resetButton.style.transition = 'transform 0.25s ease';
+});
+
+resetButton.addEventListener('mouseup', () => {
+    resetButton.style.transform = 'scale(1)';
+});
+
+resetButton.addEventListener('mouseleave', () => {
+    resetButton.style.transform = 'scale(1)';
+});
 
 </script>
 </body>
