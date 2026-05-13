@@ -252,7 +252,18 @@ textarea {
     -webkit-tap-highlight-color: transparent; /* убирает подсветку на мобильных */
     -moz-outline-style: none; /* для старых Firefox */
 }
-
+@media (min-width: 600px) {
+    .stage {
+        width: 600px;
+        max-width: 90%;
+        padding: 30px 0;
+    }
+    .logo {
+        width: 400px;
+        height: auto;
+        aspect-ratio: 550 / 90;
+    }
+}
 </style>
 
 <!-- ГугОл аналитикс -->
