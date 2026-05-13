@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://magball.ru/sitemap.xml
