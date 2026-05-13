@@ -252,15 +252,39 @@ textarea {
     -moz-outline-style: none; /* для старых Firefox */
 }
 @media (min-width: 600px) {
+    html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+    }
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
     .stage {
-        width: 600px;
-        max-width: 90%;
-        padding: 30px 0;
+        width: 800px;
+        max-width: 95%;
+        padding: 40px 0;
+        margin: 0;
     }
     .logo {
-        width: 400px;
+        width: 550px;
         height: auto;
         aspect-ratio: 550 / 90;
+    }
+    #ball {
+        width: 320px;
+        height: 320px;
+    }
+    #ball-text {
+        font-size: 36px;
+    }
+    .subtitle {
+        font-size: 16px;
+        line-height: 1.5em;
     }
 }
 </style>
