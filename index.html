@@ -47,16 +47,21 @@ body {
     justify-content: center;
     align-items: center; /* ← Меняем на center для вертикального центрирования */
     min-height: 100vh;   /* ← Добавляем для надёжности */
+    margin: 0;
+    padding: 0;
 }
 
 /* ===== СЦЕНА ===== */
 .stage {
+    .stage {
     position: relative;
     width: 360px;
     max-width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 0;       /* ← убери любой верхний отступ */
+    padding-top: 0;      /* ← убери любой верхний внутренний отступ */
 }
 
 /* ===== ЛОГО ===== */
