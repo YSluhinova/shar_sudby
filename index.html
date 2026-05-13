@@ -261,13 +261,13 @@ textarea {
         display: flex;
         justify-content: center;
         align-items: center;
-        min-height: 50vh;
+        min-height: 100vh;
     }
     .stage {
-        margin-top: 0;
-        margin-bottom: 0;
-        padding-top: 0;
-        padding-bottom: 0;
+        transform: scale(1.3);        /* ← увеличивает всю сцену в 1.3 раза */
+        transform-origin: center center; /* ← увеличивает от центра, а не от верха */
+        margin: 0;
+        padding: 0;
     }
 }
 </style>
