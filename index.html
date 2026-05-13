@@ -147,6 +147,9 @@ body {
     font-size: 30px;
     color: #fff;
     text-shadow: 1px 5px 3px rgba(0,0,0,0.3);
+    white-space: pre-line;   /* ← добавь это */
+    text-align: center;      /* ← и это, чтобы строки были по центру */
+    line-height: 0.9;
 }
 /* CSS: добавляем класс для плавного проявления текста */
 #ball-text.showing {
@@ -317,7 +320,7 @@ const ball = document.getElementById('ball');
 const ballText = document.getElementById('ball-text');
 const resetButton = document.getElementById('reset');
 
-const answers = ["Да", "Нет"];
+const answers = ["Да", "Нет", "Спроси\nпозже"];
 let isAnswered = false;
 
 ball.classList.add('breathing');
