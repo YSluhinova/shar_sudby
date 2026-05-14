@@ -272,6 +272,7 @@ textarea {
     padding: 0 25px;
     line-height: 1.5;
 }
+    
 /* Десктопы и ноутбуки */
 @media (min-width: 900px) {
     html, body {
@@ -295,14 +296,16 @@ textarea {
 /* Телефоны в альбомной ориентации */
 @media (orientation: landscape) and (max-width: 899px) {
     .stage {
-        transform: scale(0.55);
-        transform-origin: center center;
-        padding-top: 5px;
+        transform: none;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    body {
+        align-items: flex-start;
+        overflow-y: auto;
     }
 }
-
-
-    
+   
 </style>
 
 <!-- ГугОл аналитикс -->
