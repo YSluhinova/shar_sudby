@@ -107,7 +107,7 @@ body {
     cursor: pointer;
     user-select: none;
     margin-bottom: 25px;
-    transform: translateZ(0); /* ← добавь эту строку */
+    transform: translateZ(0); /*  */
 }
 #ball.breathing {
     animation: breathe 2.4s ease-in-out infinite,
@@ -145,11 +145,11 @@ body {
     text-align: center;      /* ← и это, чтобы строки были по центру */
     line-height: 0.9;
     transform: translateZ(0); /* ← добавь эту строку */
-    
+
 }
 /* CSS: добавляем класс для плавного проявления текста */
 #ball-text.showing {
-    animation: answerShow 0.7s ease forwards;  
+    animation: answerShow 0.7s ease forwards;
 }
 
 @keyframes showAnswer {
@@ -265,7 +265,7 @@ textarea {
     padding: 0 25px;
     line-height: 1.5;
 }
-    
+
 /* Десктопы и ноутбуки */
 @media (min-width: 700px) {
     html, body {
@@ -297,7 +297,7 @@ textarea {
         height: 280px;
     }
     #ball-text {
-        font-size: 34px;
+        font-size: 23px;
     }
     .subtitle {
         font-size: 16px;
@@ -328,6 +328,26 @@ textarea {
 .reset-button.spinning {
     animation: spinReset 0.6s ease-in-out;
 }
+
+#triangle {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 80px solid transparent;
+    border-right: 80px solid transparent;
+    border-top: 110px solid rgba(255, 255, 255, 0.15);
+    top: 49%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    z-index: 0;
+    pointer-events: none;
+    filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.3)); /* ← внешняя тень */
+}
+
+#ball-text {
+    position: relative;
+    z-index: 1;
+}
 </style>
 
 <!-- ГугОл аналитикс -->
@@ -347,13 +367,14 @@ textarea {
     <div class="logo"></div>
     <h1 style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0);">Шар судьбы — онлайн предсказатель</h1>
     <div class="subtitle">
-        Лови предсказания с помощью ответов,<br>которые выберет шар.
-        Задай вопрос,<br>
-        нажми на шар — получи ответ:<br>
+        Получайте предсказания с помощью ответов,<br>которые выберет шар.
+        Задайте вопрос,<br>
+        нажмите на шар — получите ответ:<br>
         «Да» или «Нет»
     </div>
 
     <div id="ball">
+        <div id="triangle"></div>
         <span id="ball-text">?</span>
     </div>
 
@@ -422,7 +443,7 @@ function showAnswer(text, duration = 1000) {
         }
     }, 300); // время на плавное исчезновение старого текста
 }
-    
+
 // В функции spinBall заменяем вызов typeAnswer на showAnswer
 function spinBall() {
     if (isAnswered) return;
@@ -444,15 +465,15 @@ function resetBall() {
         isAnswered = false;
     }, 400);
 }
-    
+
 ball.addEventListener('click', spinBall);
 resetButton.addEventListener('click', resetBall);
-    
+
 resetButton.addEventListener('click', () => {
     resetButton.classList.add('spinning');
     resetButton.style.borderColor = 'rgba(255, 255, 255, 0.9)';
     resetButton.style.boxShadow = '0 0 12px rgba(255,255,255,0.6)';
-    
+
     setTimeout(() => {
         resetButton.classList.remove('spinning');
         resetButton.style.borderColor = 'rgba(255, 255, 255, 0.4)';
