@@ -382,23 +382,23 @@ function showAnswer(text, duration = 1000) {
       // Для знака вопроса — обычное появление без увеличения
       if (text === "?") {
           ballText.style.transition = "opacity 0.5s ease";
-          ballText.style.transform = "scale(1.1)";
+          ballText.style.transform = "scale(1.3)";
       } else {
         // Для ответа — сначала выставляем стартовые значения через requestAnimationFrame
             requestAnimationFrame(() => {
                 requestAnimationFrame(() => {
-                    ballText.style.transition = "opacity 0.9s ease, transform 0.9s ease";
+                    ballText.style.transition = "opacity 1.3s ease, transform 1.3s ease";
                     ballText.style.opacity = "1";
                     ballText.style.transform = "scale(1.0)";
 
                     // Возвращаем нормальный масштаб после анимации
                     setTimeout(() => {
                         ballText.style.transform = "scale(1)";
-                    }, 400);
+                    }, 500);
                 });
             });
         }
-    }, 200); // время на плавное исчезновение старого текста
+    }, 400); // время на плавное исчезновение старого текста
 }
     
 // В функции spinBall заменяем вызов typeAnswer на showAnswer
