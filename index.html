@@ -432,13 +432,19 @@ function spinBall() {
 }
 
 function resetBall() {
+    // Останавливаем текущую анимацию, чтобы не было конфликта
+    ballText.style.transition = "opacity 0.4s ease";
     ballText.style.opacity = "0";
+    isAnswered = true;  // блокируем шар, чтобы случайный клик не сработал
+
     setTimeout(() => {
         ballText.textContent = "?";
+        ballText.style.transition = "opacity 0.6s ease";
         ballText.style.opacity = "1";
         isAnswered = false;
-    }, 700);
+    }, 400);
 }
+    
 ball.addEventListener('click', spinBall);
 resetButton.addEventListener('click', resetBall);
     
