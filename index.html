@@ -191,12 +191,12 @@ body {
     box-shadow: 0 6px 12px rgba(0,0,0,0.45);
 }
 
-/* При нажатии — кнопка «проваливается» */
+/* При нажатии — кнопка «проваливается» 
 .reset-button:active {
     transform: scale(1.95);
     background-color: #e892b0;
     box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-}
+}*/
 
 /* ===== НИЗ ===== */
 #ad {
@@ -419,18 +419,13 @@ function resetBall() {
 }
 ball.addEventListener('click', spinBall);
 resetButton.addEventListener('click', resetBall);
-
-resetButton.addEventListener('mousedown', () => {
+    
+resetButton.addEventListener('click', () => {
     resetButton.style.transform = 'scale(0.85)';
-    resetButton.style.transition = 'transform 0.25s ease';
-});
-
-resetButton.addEventListener('mouseup', () => {
-    resetButton.style.transform = 'scale(1)';
-});
-
-resetButton.addEventListener('mouseleave', () => {
-    resetButton.style.transform = 'scale(1)';
+    resetButton.style.transition = 'transform 0.1s ease';
+    setTimeout(() => {
+        resetButton.style.transform = 'scale(1)';
+    }, 100);
 });
 
 
