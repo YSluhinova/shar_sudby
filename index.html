@@ -70,11 +70,10 @@ body {
     align-items: center;
 }
 
-@media (orientation: landscape) {
+@media (orientation: landscape) and (max-width: 899px) {
     .stage {
         transform: scale(0.55);
         transform-origin: center center;
-        margin: 0 auto;
         padding-top: 20px;
     }
 }
@@ -293,8 +292,8 @@ textarea {
         min-height: 100vh;
     }
     .stage {
-        transform: scale(0.89);        /* ← увеличивает всю сцену в 1.3 раза */
-        transform-origin: center center; /* ← увеличивает от центра, а не от верха */
+        transform: scale(0.89);
+        /* transform-origin убран */
         margin: 0;
         padding: 0;
     }
