@@ -73,7 +73,7 @@ body {
 /* Масштаб сцены при повороте */
 @media (orientation: landscape) {
     .stage {
-        transform: scale(0.75);
+        transform: scale(0.55);
         transform-origin: top center;
     }
 }
@@ -114,6 +114,7 @@ body {
     cursor: pointer;
     user-select: none;
     margin-bottom: 25px;
+    transform: translateZ(0); /* ← добавь эту строку */
 }
 #ball.breathing {
     animation: breathe 2.4s ease-in-out infinite,
@@ -150,10 +151,12 @@ body {
     white-space: pre-line;   /* ← добавь это */
     text-align: center;      /* ← и это, чтобы строки были по центру */
     line-height: 0.9;
+    transform: translateZ(0); /* ← добавь эту строку */
+    
 }
 /* CSS: добавляем класс для плавного проявления текста */
 #ball-text.showing {
-    animation: answerShow 1s ease forwards;
+    animation: answerShow 1s ease forwards;  
 }
 
 @keyframes showAnswer {
