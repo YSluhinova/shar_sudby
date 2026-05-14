@@ -191,13 +191,6 @@ body {
     box-shadow: 0 6px 12px rgba(0,0,0,0.45);
 }
 
-/* При нажатии — кнопка «проваливается» 
-.reset-button:active {
-    transform: scale(1.95);
-    background-color: #e892b0;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-}*/
-
 /* ===== НИЗ ===== */
 #ad {
     font-size: 10px;
@@ -274,7 +267,7 @@ textarea {
 }
     
 /* Десктопы и ноутбуки */
-@media (min-width: 900px) {
+@media (min-width: 700px) {
     html, body {
         height: 100%;
         margin: 0;
@@ -287,9 +280,27 @@ textarea {
         min-height: 100vh;
     }
     .stage {
-        transform: scale(1.5);
-        margin: 0;
-        padding: 0;
+        width: 500px;
+        max-width: 90%;
+        margin: 0 auto;
+        padding: 20px 0;
+        transform: none;
+    }
+    .logo {
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+        aspect-ratio: 550 / 90;
+    }
+    #ball {
+        width: 280px;
+        height: 280px;
+    }
+    #ball-text {
+        font-size: 34px;
+    }
+    .subtitle {
+        font-size: 16px;
     }
 }
 
