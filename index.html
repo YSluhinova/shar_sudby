@@ -371,7 +371,7 @@ let isAnswered = false;
 
 ball.classList.add('breathing');
 function showAnswer(text, duration = 1000) {
-    ballText.style.transition = "opacity 0.3s ease, transform 0.3s ease";
+    ballText.style.transition = "opacity 0.2s ease, transform 0.2s ease";
     ballText.style.opacity = "0";
     ballText.style.transform = "scale(0.8)";
 
@@ -381,7 +381,7 @@ function showAnswer(text, duration = 1000) {
 
       // Для знака вопроса — обычное появление без увеличения
       if (text === "?") {
-          ballText.style.transition = "opacity 1.2s ease";
+          ballText.style.transition = "opacity 0.9s ease";
           ballText.style.transform = "scale(1)";
       } else {
         // Для ответа — сначала выставляем стартовые значения через requestAnimationFrame
@@ -394,12 +394,13 @@ function showAnswer(text, duration = 1000) {
                     // Возвращаем нормальный масштаб после анимации
                     setTimeout(() => {
                         ballText.style.transform = "scale(1)";
-                    }, 600);
+                    }, 500);
                 });
             });
         }
-    }, 300); // время на плавное исчезновение старого текста
+    }, 200); // время на плавное исчезновение старого текста
 }
+    
 // В функции spinBall заменяем вызов typeAnswer на showAnswer
 function spinBall() {
     if (isAnswered) return;
