@@ -405,11 +405,11 @@ function showAnswer(text, duration = 1000) {
                     // Возвращаем нормальный масштаб после анимации
                     setTimeout(() => {
                         ballText.style.transform = "scale(1)";
-                    }, 500);
+                    }, 400);
                 });
             });
         }
-    }, 400); // время на плавное исчезновение старого текста
+    }, 300); // время на плавное исчезновение старого текста
 }
     
 // В функции spinBall заменяем вызов typeAnswer на showAnswer
@@ -426,7 +426,7 @@ function resetBall() {
         ballText.textContent = "?";
         ballText.style.opacity = "1";
         isAnswered = false;
-    }, 1050);
+    }, 1000);
 }
 ball.addEventListener('click', spinBall);
 resetButton.addEventListener('click', resetBall);
