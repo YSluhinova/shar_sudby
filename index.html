@@ -70,11 +70,12 @@ body {
     align-items: center;
 }
 
-/* Масштаб сцены при повороте */
 @media (orientation: landscape) {
     .stage {
         transform: scale(0.55);
-        transform-origin: top center;
+        transform-origin: center center;
+        margin: 0 auto;
+        padding-top: 20px;
     }
 }
 
