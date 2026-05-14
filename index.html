@@ -70,13 +70,6 @@ body {
     align-items: center;
 }
 
-@media (orientation: landscape) and (max-width: 899px) {
-    .stage {
-        transform: scale(0.55);
-        transform-origin: center center;
-        padding-top: 20px;
-    }
-}
 
 /* ===== ЛОГО ===== */
 .logo {
@@ -279,7 +272,8 @@ textarea {
     padding: 0 25px;
     line-height: 1.5;
 }
-@media (min-width: 600px) {
+/* Десктопы и ноутбуки */
+@media (min-width: 900px) {
     html, body {
         height: 100%;
         margin: 0;
@@ -293,12 +287,22 @@ textarea {
     }
     .stage {
         transform: scale(0.89);
-        /* transform-origin убран */
         margin: 0;
         padding: 0;
     }
 }
 
+/* Телефоны в альбомной ориентации */
+@media (orientation: landscape) and (max-width: 899px) {
+    .stage {
+        transform: scale(0.55);
+        transform-origin: center center;
+        padding-top: 20px;
+    }
+}
+
+
+    
 </style>
 
 <!-- ГугОл аналитикс -->
