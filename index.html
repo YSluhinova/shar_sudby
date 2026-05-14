@@ -409,7 +409,21 @@ function resetBall() {
         isAnswered = false;
     }, 1050);
 }
+ball.addEventListener('click', spinBall);
+resetButton.addEventListener('click', resetBall);
 
+resetButton.addEventListener('mousedown', () => {
+    resetButton.style.transform = 'scale(0.85)';
+    resetButton.style.transition = 'transform 0.25s ease';
+});
+
+resetButton.addEventListener('mouseup', () => {
+    resetButton.style.transform = 'scale(1)';
+});
+
+resetButton.addEventListener('mouseleave', () => {
+    resetButton.style.transform = 'scale(1)';
+});
 
 
 </script>
