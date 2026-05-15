@@ -107,7 +107,9 @@ body {
     cursor: pointer;
     user-select: none;
     margin-bottom: 25px;
-    transform: translateZ(0); /*  */
+    transform: translateZ(0);
+    transition: filter 0.8s ease;
+
 }
 #ball.breathing {
     animation: breathe 2.4s ease-in-out infinite,
@@ -150,7 +152,7 @@ body {
     line-height: 0.85;
     margin-top: 2px;
 }
-    
+
 /* CSS: добавляем класс для плавного проявления текста */
 #ball-text.showing {
     animation: answerShow 0.7s ease forwards;
@@ -358,6 +360,16 @@ textarea {
     position: relative;
     z-index: 1;
 }
+    @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 50%, 90% { transform: translateX(-2px); }
+    30%, 70% { transform: translateX(2px); }
+}
+
+#ball.shaking {
+    animation: shake 0.4s ease-in-out;
+    filter: drop-shadow(0 0 8px rgba(0, 50, 200, 0.3));
+}
 </style>
 
 <!-- ГугОл аналитикс -->
@@ -407,8 +419,6 @@ textarea {
         <a href="https://t.me/sharrSudby_bot" target="_blank">bot telegram</a>
     </div>
 
-
-
     <div id="copyright">
         <p>© ВПЗ. 2026</p>
     </div>
@@ -436,6 +446,13 @@ function showAnswer(text, duration = 1000) {
 }       else {
             ballText.classList.remove("two-lines");
 }
+ball.classList.add('shaking');
+ball.style.filter = 'drop-shadow(0 0 8px rgba(0, 191, 255, 0.9))';
+
+setTimeout(() => {
+    ball.classList.remove('shaking');
+    ball.style.filter = 'drop-shadow(0 0 0px rgba(0, 191, 255, 0))';
+}, 400);
 
       // Для знака вопроса — обычное появление без увеличения
       if (text === "?") {
@@ -495,8 +512,6 @@ resetButton.addEventListener('click', () => {
         resetButton.style.boxShadow = '0 4px 8px rgba(0,0,0,0.35)';
     }, 400);
 });
-
-
 </script>
 </body>
 </html>
